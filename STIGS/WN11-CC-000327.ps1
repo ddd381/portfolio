@@ -17,7 +17,7 @@
     Date(s) Tested  : 2025-11-03
     Tested By       : M. Daniyal Asif
     Systems Tested  : Windows 11
-    PowerShell Ver. : 5.1, 7.4
+    PowerShell Ver. : 10.0
 
 .USAGE
     Run this script as Administrator.
@@ -31,8 +31,7 @@ Write-Host "Applying STIG WN11-CC-000327: Enabling PowerShell Transcription..." 
 $regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription"
 $outputDir = "C:\Transcripts"
 
-# Create output directory if it doesn't exist
-if (-not (Test-Path $outputDir)) {
+# Create output directory if it doesn't existif (-not (Test-Path $outputDir)) {
     New-Item -Path $outputDir -ItemType Directory -Force | Out-Null
 }
 
