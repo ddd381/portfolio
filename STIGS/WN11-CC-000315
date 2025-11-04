@@ -23,7 +23,7 @@
     Run this script as Administrator.
 
     Example:
-        .\Disable-AlwaysInstallElevated.ps1
+        .\WN11-CC-000315.ps1
 #>
 
 # Define registry path and value
