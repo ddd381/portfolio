@@ -12,18 +12,18 @@
     Author          : Muhammad Asif
     LinkedIn        : N/A
     GitHub          : https://github.com/ddd381
-    Date Created    : 2025-11-03
-    Last Modified   : 2025-11-03
+    Date Created    : 2025-11-04
+    Last Modified   : 2025-11-04
     Version         : 1.0
     CVEs            : N/A
     Plugin IDs      : N/A
     STIG-ID         : WN11-CC-000100
 
 .TESTED ON
-    Date(s) Tested  : 2025-11-03
+    Date(s) Tested  : 2025-11-04
     Tested By       : M. Daniyal Asif
     Systems Tested  : Windows 11
-    PowerShell Ver. : 5.1, 7.4
+    PowerShell Ver. : 10.0
 
 .USAGE
     Run this script as Administrator.
