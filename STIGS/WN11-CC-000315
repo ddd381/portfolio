@@ -1,0 +1,48 @@
+<#
+.SYNOPSIS
+    Disables "Always install with elevated privileges" as required by STIG ID: WN11-CC-000315.
+
+.NOTES
+    Author          : Muhammad Asif
+    LinkedIn        : N/A
+    GitHub          : https://github.com/ddd381
+    Date Created    : 2025-11-04
+    Last Modified   : 2025-11-04
+    Version         : 1.0
+    CVEs            : N/A
+    Plugin IDs      : N/A
+    STIG-ID         : WN11-CC-000315
+
+.TESTED ON
+    Date(s) Tested  : 2025-11-04
+    Tested By       : M. Daniyal Asif
+    Systems Tested  : Windows 11
+    PowerShell Ver. : 10.0
+
+.USAGE
+    Run this script as Administrator.
+
+    Example:
+        .\Disable-AlwaysInstallElevated.ps1
+#>
+
+# Define registry path and value
+$RegPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\Installer"
+$ValueName = "AlwaysInstallElevated"
+$DesiredValue = 0
+
+# Ensure the registry path exists
+if (-not (Test-Path $RegPath)) {
+    New-Item -Path $RegPath -Force | Out-Null
+}
+
+# Set the registry value
+Set-ItemProperty -Path $RegPath -Name $ValueName -Value $DesiredValue -Type DWord
+
+# Verify and display result
+$CurrentValue = (Get-ItemProperty -Path $RegPath -Name $ValueName).$ValueName
+if ($CurrentValue -eq $DesiredValue) {
+    Write-Host "'Always install with elevated privileges' is successfully disabled." -ForegroundColor Green
+} else {
+    Write-Host "Failed to configure the setting." -ForegroundColor Red
+}
